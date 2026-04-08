@@ -44,13 +44,12 @@
 </head>
 <body class="bg-[#FDFBF7] text-stone-800">
 
-    <!-- WELCOME SELECTION SCREEN (BLACK & GOLD) -->
+    <!-- WELCOME SCREEN (BLACK & GOLD) -->
     <div id="welcome-screen" class="fixed inset-0 text-white flex items-center justify-center p-6">
         <div class="text-center max-w-5xl">
             <h1 class="text-6xl md:text-8xl font-bold mb-4 tracking-tighter">JOHNSON<span class="gold-text">TILES</span></h1>
             <p class="text-lg opacity-60 mb-12 tracking-[0.5em] uppercase font-light">Excellence in Every Square Foot</p>
-            
-            <p class="text-2xl mb-12 serif italic opacity-90">Curate your space by selecting a category</p>
+            <p class="text-2xl mb-12 serif italic opacity-90">Select a category to enter the showroom</p>
             
             <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
                 <div onclick="startExperience('Flooring')" class="category-card cursor-pointer p-10 rounded-3xl text-center group">
@@ -73,7 +72,7 @@
         </div>
     </div>
 
-    <!-- NAVIGATION -->
+    <!-- NAV -->
     <nav class="bg-white border-b border-stone-200 sticky top-0 z-50">
         <div class="container mx-auto px-8 py-5 flex justify-between items-center">
             <h1 class="text-3xl font-bold tracking-tighter text-stone-900">JOHNSON<span class="gold-text">TILES</span></h1>
@@ -82,7 +81,8 @@
                 <a href="#calculator" class="hover:text-amber-600 transition">Calculator</a>
                 <a href="#contact" class="hover:text-amber-600 transition">Contact</a>
             </div>
-        </nav>
+        </div>
+    </nav>
 
     <!-- HERO -->
     <header class="relative h-[60vh] flex items-center justify-center text-center text-white overflow-hidden">
@@ -183,7 +183,7 @@
         </div>
     </section>
 
-    <!-- DETAIL MODAL (BLACK & GOLD) -->
+    <!-- MODAL -->
     <div id="detailModal" class="fixed inset-0 z-[100] hidden flex items-center justify-center p-4 modal-blur">
         <div class="bg-stone-900 max-w-4xl w-full rounded-3xl overflow-hidden shadow-2xl relative border border-amber-600/30">
             <button onclick="closeModal()" class="absolute top-6 right-6 text-stone-500 hover:text-white transition text-3xl z-10">&times;</button>
@@ -211,4 +211,3 @@
     <script src="script.js"></script>
 </body>
 </html>
-

@@ -1,5 +1,5 @@
-// CORE DATASET
-constluxuryKeywords = {
+// LUXURY DATASET
+const luxuryKeywords = {
     "Flooring": ["Imperial", "Royal", "Dynasty", "Majestic", "Sovereign", "Grand", "Elite", "Opulent"],
     "Walls": ["Sleek", "Modern", "Artisan", "Sculpted", "Ethereal", "Pure", "Urban", "Velvet"],
     "Bathroom": ["Azure", "Aqua", "Mist", "Crystal", "Ivory", "Pearl", "Satin", "Zenith"],
@@ -9,31 +9,36 @@ constluxuryKeywords = {
 const materials = ["Marble", "Quartz", "Porcelain", "Granite", "Ceramic", "Slate", "Travertine", "Onyx"];
 const finishes = ["Polished", "Matte", "Satin", "High-Gloss", "Honed", "Brushed"];
 
-// GENERATE 100s OF TILES
+// GENERATE 100+ TILES
 const tiles = [];
 const categories = ["Flooring", "Walls", "Bathroom", "Bedroom"];
 
-// This loop creates 100 unique tile combinations
 for (let i = 0; i < 100; i++) {
     const cat = categories[i % 4];
     const keyword = luxuryKeywords[cat][Math.floor(Math.random() * luxuryKeywords[cat].length)];
     const mat = materials[Math.floor(Math.random() * materials.length)];
     const finish = finishes[Math.floor(Math.random() * finishes.length)];
     
-    // We use a variety of Unsplash IDs to ensure images are different
-    const imgId = `photo-${1600000000000 + (i * 100000)}`; 
-    
+    // Stable Unsplash Images (Rotating 10 different luxury images)
+    const imageIds = [
+        "1600607675763-336368473f01", "1504148626136-394993115835", 
+        "1615529151163-dc757da73765", "1523413557013-d5C677969d41",
+        "1590060356732-9733699d4189", "1584622666680-27551237efc3",
+        "1600585154340-be6161a56a0c", "1581850517630-6751474616a3",
+        "1504148626136-394993115835", "1600607675763-336368473f01"
+    ];
+    const selectedImg = imageIds[i % 10];
+
     tiles.push({
         name: `${keyword} ${mat} ${finish}`,
         price: `₹${Math.floor(Math.random() * (800 - 200) + 200)} / sq.ft`,
-        imgUrl: `https://images.unsplash.com/photo-${1600000000000 + (i * 10000)}?auto=format&fit=crop&w=800&q=80`,
+        imgUrl: `https://images.unsplash.com/photo-${selectedImg}?auto=format&fit=crop&w=800&q=80`,
         category: cat,
         type: `${mat} Series`,
         description: `A masterpiece of design. This ${finish} ${mat} tile from our ${keyword} collection is crafted for those who appreciate the finer things in life. Durable, stain-resistant, and visually stunning.`
     });
 }
 
-// HANDLE WELCOME SCREEN
 function startExperience(chosenCategory) {
     document.getElementById('welcome-screen').classList.add('hidden-welcome');
     document.getElementById('cat-title').innerText = `${chosenCategory} Collection`;
@@ -49,7 +54,13 @@ function startExperience(chosenCategory) {
 function displayTiles(tileList) {
     const grid = document.getElementById('tile-grid');
     
-    grid.innerHTML = tileList.map((tile, index) => `
+    // Fallback if no tiles found
+    if (tileList.length === 0) {
+        grid.innerHTML = `<p class="text-center col-span-full text-stone-500 italic py-20">Coming soon to our luxury collection...</p>`;
+        return;
+    }
+
+    grid.innerHTML = tileList.map((tile) => `
         <div class="tile-card group bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-2xl transition-all duration-500 border border-stone-100 relative">
             <div class="h-80 overflow-hidden relative">
                 <img src="${tile.imgUrl}" 
