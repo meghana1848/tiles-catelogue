@@ -1,4 +1,4 @@
-# EliteTiles - Premium Tile Catalogue & Calculator
+# JOHNSON TILES- Premium Tile Catalogue & Calculator
 
 ## 📌 Project Overview
 EliteTiles is a modern front-end web application designed for tile retailers and customers. It serves as a digital catalogue to showcase tile varieties and includes a specialized calculator to help users determine the exact amount of material needed for their flooring projects.

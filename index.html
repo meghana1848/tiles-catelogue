@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Johnson Tiles | Premium Flooring Studio</title>
+    <title>Johnson Tiles | Elite Flooring Studio</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;600&display=swap');
         
-        :root { --gold: #C5A059; --dark: #1A1A1A; }
+        :root { --gold: #C5A059; --dark: #0F0F0F; --dark-grey: #1A1A1A; }
         body { font-family: 'Poppins', sans-serif; scroll-behavior: smooth; }
         h1, h2, h3, .serif { font-family: 'Playfair Display', serif; }
         
@@ -17,11 +17,12 @@
         .gold-bg { background-color: var(--gold); }
         .dark-bg { background-color: var(--dark); }
         
-        .modal-blur { backdrop-filter: blur(10px); background-color: rgba(0,0,0,0.8); }
+        .modal-blur { backdrop-filter: blur(15px); background-color: rgba(0,0,0,0.9); }
         
         #welcome-screen {
             transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
             z-index: 200;
+            background: linear-gradient(135deg, #0f0f0f 0%, #1a1a1a 100%);
         }
         .hidden-welcome {
             opacity: 0;
@@ -29,42 +30,44 @@
             transform: translateY(-100%);
         }
         .category-card {
-            transition: all 0.3s ease;
-            border: 1px solid rgba(197, 160, 89, 0.3);
+            transition: all 0.4s ease;
+            border: 1px solid rgba(197, 160, 89, 0.2);
+            background: rgba(255, 255, 255, 0.03);
         }
         .category-card:hover {
             transform: translateY(-10px);
             border-color: var(--gold);
-            background-color: rgba(197, 160, 89, 0.1);
+            background: rgba(197, 160, 89, 0.1);
+            box-shadow: 0 10px 30px rgba(197, 160, 89, 0.2);
         }
     </style>
 </head>
 <body class="bg-[#FDFBF7] text-stone-800">
 
-    <!-- WELCOME SELECTION SCREEN -->
-    <div id="welcome-screen" class="fixed inset-0 dark-bg text-white flex items-center justify-center p-6">
-        <div class="text-center max-w-4xl">
-            <h1 class="text-5xl md:text-7xl font-bold mb-4">JOHNSON<span class="gold-text">TILES</span></h1>
-            <p class="text-lg opacity-70 mb-12 tracking-widest uppercase">Excellence in Every Square Foot</p>
+    <!-- WELCOME SELECTION SCREEN (BLACK & GOLD) -->
+    <div id="welcome-screen" class="fixed inset-0 text-white flex items-center justify-center p-6">
+        <div class="text-center max-w-5xl">
+            <h1 class="text-6xl md:text-8xl font-bold mb-4 tracking-tighter">JOHNSON<span class="gold-text">TILES</span></h1>
+            <p class="text-lg opacity-60 mb-12 tracking-[0.5em] uppercase font-light">Excellence in Every Square Foot</p>
             
-            <p class="text-2xl mb-8 serif italic">Which space are you designing today?</p>
+            <p class="text-2xl mb-12 serif italic opacity-90">Curate your space by selecting a category</p>
             
-            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
-                <div onclick="startExperience('Flooring')" class="category-card cursor-pointer p-8 rounded-2xl text-center group">
-                    <i class="fas fa-layer-group text-3xl gold-text mb-4 block group-hover:scale-110 transition"></i>
-                    <span class="font-semibold tracking-wider uppercase text-sm">Flooring</span>
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
+                <div onclick="startExperience('Flooring')" class="category-card cursor-pointer p-10 rounded-3xl text-center group">
+                    <i class="fas fa-layer-group text-4xl gold-text mb-6 block group-hover:scale-110 transition-transform"></i>
+                    <span class="font-semibold tracking-widest uppercase text-sm">Flooring</span>
                 </div>
-                <div onclick="startExperience('Walls')" class="category-card cursor-pointer p-8 rounded-2xl text-center group">
-                    <i class="fas fa-border-all text-3xl gold-text mb-4 block group-hover:scale-110 transition"></i>
-                    <span class="font-semibold tracking-wider uppercase text-sm">Walls</span>
+                <div onclick="startExperience('Walls')" class="category-card cursor-pointer p-10 rounded-3xl text-center group">
+                    <i class="fas fa-border-all text-4xl gold-text mb-6 block group-hover:scale-110 transition-transform"></i>
+                    <span class="font-semibold tracking-widest uppercase text-sm">Walls</span>
                 </div>
-                <div onclick="startExperience('Bathroom')" class="category-card cursor-pointer p-8 rounded-2xl text-center group">
-                    <i class="fas fa-bath text-3xl gold-text mb-4 block group-hover:scale-110 transition"></i>
-                    <span class="font-semibold tracking-wider uppercase text-sm">Bathroom</span>
+                <div onclick="startExperience('Bathroom')" class="category-card cursor-pointer p-10 rounded-3xl text-center group">
+                    <i class="fas fa-bath text-4xl gold-text mb-6 block group-hover:scale-110 transition-transform"></i>
+                    <span class="font-semibold tracking-widest uppercase text-sm">Bathroom</span>
                 </div>
-                <div onclick="startExperience('Bedroom')" class="category-card cursor-pointer p-8 rounded-2xl text-center group">
-                    <i class="fas fa-bed text-3xl gold-text mb-4 block group-hover:scale-110 transition"></i>
-                    <span class="font-semibold tracking-wider uppercase text-sm">Bedroom</span>
+                <div onclick="startExperience('Bedroom')" class="category-card cursor-pointer p-10 rounded-3xl text-center group">
+                    <i class="fas fa-bed text-4xl gold-text mb-6 block group-hover:scale-110 transition-transform"></i>
+                    <span class="font-semibold tracking-widest uppercase text-sm">Bedroom</span>
                 </div>
             </div>
         </div>
@@ -79,27 +82,26 @@
                 <a href="#calculator" class="hover:text-amber-600 transition">Calculator</a>
                 <a href="#contact" class="hover:text-amber-600 transition">Contact</a>
             </div>
-        </div>
-    </nav>
+        </nav>
 
     <!-- HERO -->
-    <header class="relative h-[70vh] flex items-center justify-center text-center text-white overflow-hidden">
+    <header class="relative h-[60vh] flex items-center justify-center text-center text-white overflow-hidden">
         <div class="absolute inset-0 bg-black/60 z-10"></div>
         <img src="https://images.unsplash.com/photo-1600607675763-336368473f01?auto=format&fit=crop&w=1600&q=80" class="absolute inset-0 w-full h-full object-cover" alt="Hero">
         <div class="relative z-20 px-6">
-            <h2 class="text-5xl md:text-7xl font-bold mb-4 leading-tight">Excellence in Every <br> Square Foot</h2>
-            <p class="text-lg md:text-xl mb-10 opacity-90 max-w-2xl mx-auto font-light italic">Premium Surfaces curated for the most prestigious homes in India.</p>
-            <a href="#catalogue" class="gold-bg text-white px-12 py-4 rounded-full font-semibold hover:bg-amber-700 transition shadow-2xl uppercase tracking-widest text-xs">Explore Collections</a>
+            <h2 class="text-5xl md:text-7xl font-bold mb-4 leading-tight">The Art of Luxury <br> Surfaces</h2>
+            <p class="text-lg md:text-xl mb-10 opacity-90 max-w-2xl mx-auto font-light italic">Exclusive collection of premium tiles for the most prestigious residences.</p>
+            <a href="#catalogue" class="gold-bg text-white px-12 py-4 rounded-full font-semibold hover:bg-amber-700 transition shadow-2xl uppercase tracking-widest text-xs">Explore the Vault</a>
         </div>
     </header>
 
     <!-- CATALOGUE -->
     <section id="catalogue" class="py-24 container mx-auto px-8">
         <div class="text-center mb-20">
-            <h3 id="cat-title" class="text-4xl md:text-5xl font-bold mb-4 text-stone-900">Our Premium Collection</h3>
+            <h3 id="cat-title" class="text-4xl md:text-6xl font-bold mb-4 text-stone-900">Premium Collection</h3>
             <div class="h-px w-32 gold-bg mx-auto"></div>
         </div>
-        <div id="tile-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-12"></div>
+        <div id="tile-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8"></div>
     </section>
 
     <!-- CALCULATOR -->
@@ -107,21 +109,21 @@
         <div class="container mx-auto px-8">
             <div class="max-w-6xl mx-auto bg-white rounded-3xl shadow-2xl overflow-hidden flex flex-col md:flex-row">
                 <div class="md:w-1/3 dark-bg text-white p-12 flex flex-col justify-center text-center md:text-left">
-                    <h3 class="text-4xl font-bold mb-6">Precise <br> Estimation</h3>
+                    <h3 class="text-4xl font-bold mb-6">Precision <br> Estimation</h3>
                     <p class="opacity-60 leading-relaxed font-light">Avoid waste and budget correctly. Our calculator provides a professional estimate including a 10% margin for cuts.</p>
                 </div>
                 <div class="md:w-2/3 p-12">
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                        <div>
-                            <label class="block text-xs font-bold uppercase tracking-widest text-stone-500 mb-2">Room Length (ft)</label>
+                        <div class="space-y-2">
+                            <label class="block text-xs font-bold uppercase tracking-widest text-stone-500">Room Length (ft)</label>
                             <input type="number" id="roomLength" class="w-full p-4 bg-stone-50 border border-stone-200 rounded-xl focus:ring-2 focus:ring-amber-500 outline-none">
                         </div>
-                        <div>
-                            <label class="block text-xs font-bold uppercase tracking-widest text-stone-500 mb-2">Room Width (ft)</label>
+                        <div class="space-y-2">
+                            <label class="block text-xs font-bold uppercase tracking-widest text-stone-500">Room Width (ft)</label>
                             <input type="number" id="roomWidth" class="w-full p-4 bg-stone-50 border border-stone-200 rounded-xl focus:ring-2 focus:ring-amber-500 outline-none">
                         </div>
-                        <div>
-                            <label class="block text-xs font-bold uppercase tracking-widest text-stone-500 mb-2">Tile Dimension</label>
+                        <div class="space-y-2">
+                            <label class="block text-xs font-bold uppercase tracking-widest text-stone-500">Tile Dimension</label>
                             <select id="tileSize" class="w-full p-4 bg-stone-50 border border-stone-200 rounded-xl focus:ring-2 focus:ring-amber-500 outline-none">
                                 <option value="12">12" x 12" Standard</option>
                                 <option value="24">24" x 24" Large Format</option>
@@ -129,8 +131,8 @@
                                 <option value="6">6" x 24" Plank Style</option>
                             </select>
                         </div>
-                        <div>
-                            <label class="block text-xs font-bold uppercase tracking-widest text-stone-500 mb-2">Tiles Per Box</label>
+                        <div class="space-y-2">
+                            <label class="block text-xs font-bold uppercase tracking-widest text-stone-500">Tiles Per Box</label>
                             <input type="number" id="tilesPerBox" class="w-full p-4 bg-stone-50 border border-stone-200 rounded-xl focus:ring-2 focus:ring-amber-500 outline-none" value="10">
                         </div>
                     </div>
@@ -181,18 +183,18 @@
         </div>
     </section>
 
-    <!-- MODAL -->
+    <!-- DETAIL MODAL (BLACK & GOLD) -->
     <div id="detailModal" class="fixed inset-0 z-[100] hidden flex items-center justify-center p-4 modal-blur">
-        <div class="bg-white max-w-4xl w-full rounded-3xl overflow-hidden shadow-2xl relative">
-            <button onclick="closeModal()" class="absolute top-6 right-6 text-stone-400 hover:text-stone-900 transition text-3xl z-10">&times;</button>
+        <div class="bg-stone-900 max-w-4xl w-full rounded-3xl overflow-hidden shadow-2xl relative border border-amber-600/30">
+            <button onclick="closeModal()" class="absolute top-6 right-6 text-stone-500 hover:text-white transition text-3xl z-10">&times;</button>
             <div class="flex flex-col md:flex-row">
                 <img id="modalImg" src="" class="md:w-1/2 h-96 md:h-auto object-cover" alt="Detail">
-                <div class="p-8 md:p-12 md:w-1/2">
+                <div class="p-8 md:p-12 md:w-1/2 text-white">
                     <span id="modalCat" class="text-xs font-bold gold-text uppercase tracking-widest"></span>
-                    <h3 id="modalName" class="text-4xl font-bold mt-2 mb-4 text-stone-900"></h3>
-                    <p id="modalPrice" class="text-2xl font-semibold mb-6 text-stone-700"></p>
-                    <p id="modalDesc" class="text-stone-500 leading-relaxed mb-8 font-light"></p>
-                    <button class="w-full py-4 border-2 border-stone-900 hover:bg-stone-900 hover:text-white transition uppercase tracking-widest text-xs font-bold">Request Sample</button>
+                    <h3 id="modalName" class="text-4xl font-bold mt-2 mb-4 text-white"></h3>
+                    <p id="modalPrice" class="text-2xl font-semibold mb-6 gold-text"></p>
+                    <p id="modalDesc" class="text-stone-400 leading-relaxed mb-8 font-light"></p>
+                    <button class="w-full py-4 gold-bg text-white hover:bg-amber-700 transition uppercase tracking-widest text-xs font-bold shadow-lg">Request a Sample</button>
                 </div>
             </div>
         </div>
@@ -209,3 +211,4 @@
     <script src="script.js"></script>
 </body>
 </html>
+
